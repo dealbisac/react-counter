@@ -6,7 +6,7 @@ class Application extends Component {
     super(props);
 
     this.state = {
-      count: 0.
+      count: 0,
       overTwentyFive: false
     }
   }
@@ -20,7 +20,10 @@ class Application extends Component {
 
   componentDidUpdate(props, state) {
     // console.log("Updated from", state, "to", this.state);
-    this.setState({ count: this.state.count + 1 })
+    if ((this.state.count > 25) && (this.state.count !== state.count) && (!this.state.overTwentyFive)) {
+      console.log("Updating after Twenty Five");
+      this.setState({ overTwentyFive: true });
+    }
   }
 
 
@@ -32,6 +35,11 @@ class Application extends Component {
         <h1>React Counter Application</h1>
 
         <h2>You clicked the button {count} times</h2>
+        {(this.state.overTwentyFive) ?
+          <h3>You have a new High Score of {count}.</h3>
+          : <h3>Beat High Score of 25.</h3>
+
+        }
         <span>
           <button onClick={() => this.handleClick()}> Click Me!</button>
         </span>
