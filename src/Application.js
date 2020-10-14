@@ -6,7 +6,8 @@ class Application extends Component {
     super(props);
 
     this.state = {
-      count: 0
+      count: 0.
+      overTwentyFive: false
     }
   }
 
@@ -18,7 +19,8 @@ class Application extends Component {
 
 
   componentDidUpdate(props, state) {
-    console.log("Updated from", state, "to", this.state);
+    // console.log("Updated from", state, "to", this.state);
+    this.setState({ count: this.state.count + 1 })
   }
 
 
