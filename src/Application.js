@@ -4,37 +4,30 @@ import './Application.css';
 class Application extends Component {
   constructor(props) {
     super(props);
-  }
 
-  componentWillMount(props, state) {
-
-  }
-
-  componentDidMount(props, state) {
-    console.log("Mounted with", props, state);
-  }
-
-  componentWillReceiveProps(props) {
-
-  }
-
-  componentWillUpdate(props, state) {
-    if (this.props.name !== props.name) {
-      //do something
+    this.state = {
+      count: 0
     }
-
   }
 
-  componentDidUpdate(props, state) {
-
+  handleClick = () => {
+    this.setState({
+      count: this.state.count + 1
+    })
   }
+
 
   render() {
-    let name = "Dipendra";
+    let { count } = this.state;
 
     return (
       <div className="App">
-        <h1> Hello <i>{name}</i> from Class Component</h1>
+        <h1>React Counter Application</h1>
+
+        <h2>You clicked the button {count} times</h2>
+        <span>
+          <button onClick={() => this.handleClick()}> Click Me!</button>
+        </span>
 
       </div>
     )
