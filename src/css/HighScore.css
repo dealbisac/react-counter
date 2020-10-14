@@ -1,0 +1,11 @@
+.highscore > button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 50px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: red;
+  outline-style: none;
+}

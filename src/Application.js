@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './Application.css';
+import './css/Application.css';
+import './css/style.css';
 import HighScore from './HighScore';
 
 class Application extends Component {
