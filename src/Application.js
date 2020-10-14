@@ -17,6 +17,11 @@ class Application extends Component {
   }
 
 
+  componentDidUpdate(props, state) {
+    console.log("Updated from", state, "to", this.state);
+  }
+
+
   render() {
     let { count } = this.state;
 
