@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Application.css';
+import HighScore from './HighScore';
 
 class Application extends Component {
   constructor(props) {
@@ -26,6 +27,14 @@ class Application extends Component {
     }
   }
 
+  resetCount = (e) => {
+    //console.log("Event is", e);
+    this.setState({
+      count: 0,
+      overTwentyFive: false
+    })
+  }
+
 
   render() {
     let { count } = this.state;
@@ -33,13 +42,13 @@ class Application extends Component {
     return (
       <div className="App">
         <h1>React Counter Application</h1>
+        <p>Beat the Hidden High Score by Clicking the Button</p>
 
         <h2>You clicked the button {count} times</h2>
-        {(this.state.overTwentyFive) ?
-          <h3>You have a new High Score of {count}.</h3>
-          : <h3>Beat High Score of 25.</h3>
-
-        }
+        <HighScore
+          overTwentyFive={this.state.overTwentyFive}
+          onReset={this.resetCount}
+        />
         <span>
           <button onClick={() => this.handleClick()}> Click Me!</button>
         </span>
